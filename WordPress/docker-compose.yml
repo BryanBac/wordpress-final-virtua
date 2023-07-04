@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  wordpress:
+    image: wordpress:latest
+    volumes:
+      - ./src/themes:/var/www/html/wp-content/themes
+      - ./src/plugins:/var/www/html/wp-content/plugins
+      - ./src/uploads:/var/www/html/wp-content/uploads
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: 192.168.1.24
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: Tr4c30n
+      WORDPRESS_DB_NAME: bd_prueba
